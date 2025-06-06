@@ -1,0 +1,112 @@
+What are the components of OS
+
+ Application
+Services        = = Driver  + kernel
+
+  Kernel is core of our operating system
+
+ps -: listing all process executing in current terminal
+
+./a.out &  -: putting our process in backgroung
+
+
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP$ ./a.out &
+[1] 13127
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP$ Hello....
+Hello....
+Hello....
+Hello....
+Hello....
+Hello....
+Hello....
+Hello....
+Hello....
+ps
+  PID TTY          TIME CMD
+ 6431 pts/0    00:00:01 bash
+13127 pts/0    00:00:00 a.out
+13132 pts/0    00:00:00 ps
+
+
+
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP$ Hello....
+fg
+./a.out
+Hello....
+Hello....
+
+command for putting in background -: ./a.out &
+command for putting in forground from Background -: fg
+
+pid_t -: Max limit -: 32 bit variable -: 32767
+
+vi /proc/sys/kernel/pid_max
+
+
+Process -: A program is in Execution called process
+Pid   -: Process id
+
+NAME
+       getpid, getppid - get process identification
+
+SYNOPSIS
+       #include <sys/types.h>
+       #include <unistd.h>
+
+       pid_t getpid(void);
+       pid_t getppid(void);
+	   
+	    
+	   getpid()  returns  the  process ID (PID) of the calling process
+	   getppid() returns the process ID of the parent of the calling process
+	   
+	   Terminated - Process -:  ppid -: 1 -: Init in ppid
+	   
+	   #define pid_t    unsigned short integer
+	   
+	   pid_t  getpid(void);
+	   pid_t  getppid(void);
+	   
+	   Ex-1 
+	   
+	   #include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main()
+{
+
+
+		printf("Pid=%d ppid=%d\n",getpid(),getppid());
+
+return 0;
+
+}
+
+
+output -:
+
+Pid=2124 ppid=6431
+
+
+
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP/003_LSP$ ./a.out 
+Pid=13729 ppid=6431
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP/003_LSP$ ./a.out 
+Pid=13730 ppid=6431
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP/003_LSP$ ./a.out 
+Pid=13731 ppid=6431
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP/003_LSP$ ./a.out 
+Pid=13732 ppid=6431
+
+
+note-: if we are putting same process in execution every time than RAM will allocated diffrent PID
+
+
+-: process id of init -: 1
+-: proceess id of schedular -: 0
+
+
+Tomorrow -:
+  job id -: 
+  different Time -: 
+  states of process

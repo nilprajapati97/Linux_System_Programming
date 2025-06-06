@@ -1,0 +1,54 @@
+008_LSP_System Function
+*******************************
+
+
+
+System Function -: execute shell commands
+
+
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP/009_LSP$ cat 0003_System.c 
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+
+
+		printf("Hello..ANIL.. Pid=%d\n",getpid());
+		system("ls");
+		system("pwd");
+		printf("Hai...\n");
+		return 0;
+
+
+}
+anil@INDCP13YY2-L:~/Desktop/Class/Linux/LSP/009_LSP$ ./a.out 
+Hello..ANIL.. Pid=1942
+0002_System.c  0003_System.c  a.out
+/home/anil/Desktop/Class/Linux/LSP/009_LSP
+Hai...
+
+Note -: system("ls") and system("pwd") start sequentily because of "ls" is compiled than "pwd" is execute.
+
+
+* Sequencially Process -:
+			 When one process is completed other second process is execute is called Sequential Process.
+* Con-current process -: 
+			 when process is start in background is called concurrent process
+
+
+           forground -: bash execute sequenciall    --- 1
+           Background -: bash execute con- currently  --2    ./a.out &
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
